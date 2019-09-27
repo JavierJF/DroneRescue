@@ -95,7 +95,7 @@ if __name__ == '__main__':
     client.armDisarm(True)
 
     # Check State and takeoff if required
-    landed = client.getMultirotorState().landed_state
+    landed = client.getMultirotorState().kinematics_estimated.position.z_val > 1
 
     if landed == airsim.LandedState.Landed:
         print("taking off...")
